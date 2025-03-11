@@ -1,0 +1,1 @@
+I noticed that I start to forget how to develop projects with vanila JavaScript instead of React. Here I will be creating simple web projects to remind myself how vanila JavaScript works
