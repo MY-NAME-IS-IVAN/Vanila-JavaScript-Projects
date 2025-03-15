@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Hangman</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <hgroup>
+      <h1>Hangman</h1>
+      <p>Find the hidden word - Enter a letter</p>
+    </hgroup>
+
+    <div class="game-container">
+      <!-- Gallows -->
+      <div class="gallows">
+        <svg height="250" width="200" class="stickman-container">
+          <line x1="60" y1="20" x2="140" y2="20" />
+          <line x1="140" y1="20" x2="140" y2="50" />
+          <line x1="60" y1="20" x2="60" y2="230" />
+          <line x1="20" y1="230" x2="100" y2="230" />
+
+          <!-- Stickman Head -->
+          <circle cx="140" cy="70" r="20" class="stickman-part" />
+
+          <!-- Stickman Body -->
+          <line x1="140" y1="90" x2="140" y2="140" class="stickman-part" />
+
+          <!-- Stickman Arms -->
+          <line x1="140" y1="100" x2="130" y2="125" class="stickman-part" />
+          <line x1="140" y1="100" x2="150" y2="125" class="stickman-part" />
+
+          <!-- Stickman Legs -->
+          <line x1="140" y1="140" x2="135" y2="165" class="stickman-part" />
+          <line x1="140" y1="140" x2="145" y2="165" class="stickman-part" />
+        </svg>
+        <div class="wrong-letters-container" id="wrong-letters-container">
+          <div>
+            <p>Wrong Letters:</p>
+            <ul class="wrong-letters-list" id="wrong-letters-list"></ul>
+          </div>
+        </div>
+      </div>
+      <div class="word" id="word">
+        <!-- <span class="letter">h</span>
+        <span class="letter">e</span>
+        <span class="letter">l</span>
+        <span class="letter">l</span>
+        <span class="letter">o</span> -->
+      </div>
+    </div>
+
+    <!-- Final Message -->
+    <div class="finish-screen-container" id="finish-screen-container">
+      <div class="finish-screen">
+        <h2 id="final-message">You Have Won</h2>
+        <button id="play-again-btn">Play Again</button>
+      </div>
+    </div>
+
+    <!-- Notification -->
+    <div class="notification-container" id="notification-container">
+      <p>You have already entered this letter</p>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
