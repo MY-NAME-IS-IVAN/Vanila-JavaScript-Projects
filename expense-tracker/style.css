@@ -1,0 +1,206 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+:root {
+  --primary-red-color: #d84040;
+  --primary-green-color: #03c03c;
+}
+
+* {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+header {
+  padding: 0 20px;
+}
+
+.content-container {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  justify-content: center;
+  gap: 32px;
+  width: 430px;
+}
+
+.balance-number {
+  font-size: 1.5rem;
+  font-weight: 500;
+  margin-left: 4px;
+}
+
+.balance-number.positive {
+  color: var(--primary-green-color);
+}
+
+.balance-number.negative {
+  color: var(--primary-red-color);
+}
+
+.money-flow-container {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  gap: 32px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 8px;
+  height: 260px;
+  overflow-y: scroll;
+}
+
+.money-flow-container h2 {
+  margin-bottom: 12px;
+  text-align: center;
+}
+
+.money-flow-container h2.income-title {
+  color: var(--primary-green-color);
+}
+
+.money-flow-container h2.expenses-title {
+  color: var(--primary-red-color);
+}
+
+.money-flow-container .division-line {
+  width: 1px;
+  background-color: rgba(0, 0, 0, 0.1);
+  border-radius: 16px;
+}
+
+.money-container {
+  flex: 1;
+}
+
+.money-flow-container ul {
+  list-style-type: none;
+}
+
+.money-flow-container ul li {
+  width: 150px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  position: relative;
+  padding: 8px;
+  border-radius: 4px;
+  transition: 0.25s background-color ease;
+}
+
+.money-flow-container ul li p {
+  word-break: break-all;
+}
+
+.money-flow-container ul li:hover {
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+.money-flow-container ul li button.delete-transaction {
+  position: absolute;
+  left: -20px;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  color: #fff;
+  background-color: var(--primary-red-color);
+  border: none;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  opacity: 0;
+  transition: 0.25s opacity ease;
+}
+
+.money-flow-container ul li button.delete-transaction::after {
+  content: 'X';
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: #fff;
+  font-size: 12px;
+}
+
+.money-flow-container ul li:hover button.delete-transaction {
+  opacity: 1;
+}
+
+.money-flow-container .income {
+  color: var(--primary-green-color);
+  font-weight: 500;
+}
+
+.money-flow-container .expense {
+  color: var(--primary-red-color);
+  font-weight: 500;
+}
+
+form.transaction-form {
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+  padding: 24px;
+  border-radius: 8px;
+}
+
+form.transaction-form .form-row {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+}
+
+form.transaction-form input {
+  padding: 12px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  border-radius: 4px;
+  outline: none;
+}
+
+form.transaction-form .add-transaction-btn {
+  border-radius: 4px;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  padding: 12px 0;
+  font-size: 1rem;
+  cursor: pointer;
+  background-color: rgba(0, 0, 0, 0.05);
+}
+
+form.transaction-form .add-transaction-btn:active {
+  transform: scale(0.98);
+}
+
+@media (max-width: 450px) {
+  body {
+    align-items: flex-start;
+    margin-top: 20px;
+  }
+  .content-container {
+    gap: 16px;
+    width: 320px;
+  }
+
+  .division-line {
+    display: none;
+  }
+
+  .money-flow-container ul li {
+    width: 120px;
+  }
+
+
+}
