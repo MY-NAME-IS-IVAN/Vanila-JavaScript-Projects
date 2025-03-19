@@ -16,11 +16,22 @@ let word;
 
 let notificationTimeout;
 
+const words = ['cow', 'user'];
+
 function getRandomWord() {
   fetch('https://random-word-api.herokuapp.com/word')
-    .then((res) => res.json())
+    .then((res) => {
+      if (!res.ok) {
+        throw new Error(`HTTP error! status: ${res.status}`);
+      }
+      return res.json();
+    })
     .then((data) => {
       word = data[0];
+      displayWord();
+    })
+    .catch(() => {
+      word = STORED_WORDS[Math.floor(Math.random() * STORED_WORDS.length)];
       displayWord();
     });
 }
